@@ -170,6 +170,7 @@ class get_net_conntions():
 
         errorIndication, errorStatus, errorIndex, varBinds = self.cmdGen.getCmd(
             self.snmp_auth,
+            #cmdgen.UdpTransportTarget((self.args['host'], 161) ,timeout=30, retries=5),
             cmdgen.UdpTransportTarget((self.args['host'], 161)),
             cmdgen.MibVariable(p.sysDescr, ),
             cmdgen.MibVariable(p.sysObjectId, ),
@@ -205,6 +206,7 @@ class get_net_conntions():
 
         errorIndication, errorStatus, errorIndex, varTable = self.cmdGen.nextCmd(
             self.snmp_auth,
+            #cmdgen.UdpTransportTarget((self.args['host'], 161) ,timeout=30, retries=5),
             cmdgen.UdpTransportTarget((self.args['host'], 161)),
             cmdgen.MibVariable(p.ifIndex, ),
             cmdgen.MibVariable(p.ifDescr, ),
